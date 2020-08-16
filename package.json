@@ -1,0 +1,24 @@
+{
+  "name": "puppeteerpercytesting",
+  "version": "1.0.0",
+  "description": "Visual Regression Testing with Puppeteer and Parcy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marb61a/PuppeteerPercyTesting.git"
+  },
+  "author": "Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marb61a/PuppeteerPercyTesting/issues"
+  },
+  "homepage": "https://github.com/marb61a/PuppeteerPercyTesting#readme",
+  "dependencies": {
+    "jest": "^26.4.0",
+    "jest-image-snapshot": "^4.1.0",
+    "puppeteer": "^5.2.1"
+  }
+}
