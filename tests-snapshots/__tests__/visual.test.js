@@ -68,4 +68,14 @@ describe('Visual Regression Testing', () => {
         });
     });
 
+    // Removes dynamic content from a site which may cause tests
+    // to become unstable
+    test('Remove Element before Snapshot', async function(){
+        await page.goto('http://www.example.com');
+        await page.evaluate(() => {
+            ;(document.querySelectorAll('h1') || []).forEach(el => el.remove())
+        });
+        await page.waitFor(5000);
+    });
+
 });

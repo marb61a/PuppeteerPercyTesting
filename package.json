@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test-snapshots": "jest --config=jest.config.js --detectOpenHandles --forceExit",
-    "test-snapshots-update": "jest --config=jest.config.js --updateSnapshot --detectOpenHandles --forceExit"
+    "test-snapshots-update": "jest --config=jest.config.js --updateSnapshot --detectOpenHandles --forceExit",
+    "test:percy": "percy exec -- jest -i './tests-snapshots/__tests__/percy.test.js'"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/marb61a/PuppeteerPercyTesting#readme",
   "dependencies": {
+    "@percy/puppeteer": "^1.1.0",
     "jest": "^26.4.0",
     "jest-image-snapshot": "^4.1.0",
     "puppeteer": "^5.2.1"
