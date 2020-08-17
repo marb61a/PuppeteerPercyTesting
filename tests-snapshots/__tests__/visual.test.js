@@ -24,7 +24,25 @@ describe('Visual Regression Testing', () => {
         await browser.close();
     });
 
-    test('', async function(){
-
-    })
+    test('Full Page Snapshot', async function(){
+        await page.goto('http://www.example.com');
+        await page.waitForSelector('h1');
+        // Will capture a screenshot and save to folder
+        // When the test is re-run the images must match to pass
+        const image = await page.screenshot();
+        expect(image).toMatchImageSnapshot({
+            failureThresholdType: 'pixel',
+            failureThreshold: 500
+        });
+    });
+    
+    test('Single Element Snapshot', async function(){
+        await page.goto('http://www.example.com');
+        const h1 = await page.waitForSelector('h1');
+        const image = await h1.screenshot();
+        expect(image).toMatchImageSnapshot({
+            failureThresholdType: 'percent',
+            failureThreshold: 0.01
+        });
+    });
 });
