@@ -8,7 +8,7 @@ describe('Percy Visual Test', () => {
     // Will be ran before any tests
     beforeAll(async function(){
         browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             slowMo: 0,
             devtools: false,
             // defaultViewport: null,
@@ -24,7 +24,11 @@ describe('Percy Visual Test', () => {
 
     test('Full Page Percy Snapshot', async () => {
         await page.goto('http://www.example.com');
+        await page.evaluate(() => {
+            ;(document.querySelectorAll('h1') || []).forEach(el => el.remove())
+        });
         await page.waitFor(1000);
         await percySnapshot(page, 'Example Page');
-    })
+    });
+    
 });
